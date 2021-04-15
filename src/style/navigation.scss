@@ -1,0 +1,46 @@
+@import 'variables';
+
+.main-pusher {
+	margin-left: 0;
+}
+
+aside.nav {
+	transform: translateX(-14rem);
+}
+
+input#nav-toggle:checked ~ :is(.nav) {
+	transform: translateX(0);
+}
+
+.nav,
+.main-pusher {
+	transition: width, transform 250ms ease-in-out;
+}
+
+@media screen and (min-width: $md) {
+	.main-pusher {
+		transition: margin-left 100ms ease-in-out;
+	}
+	.nav {
+		transition: width 100ms ease-in-out;
+	}
+	aside.nav {
+		transform: none;
+	}
+	.main-pusher {
+		margin-left: 14rem;
+	}
+	input#nav-toggle:checked ~ :is(.main-pusher) {
+		margin-left: 6rem;
+	}
+	input#nav-toggle:checked ~ :is(.nav) {
+		width: 6rem;
+	}
+
+	input#nav-toggle:checked ~ :is(.main-pusher) {
+		// margin-left: 6rem;
+		// All labels should be hidden
+	}
+}
+
+
