@@ -10,11 +10,11 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 const client = new ApolloClient({
   uri: "https://48p1r2roz4.sse.codesandbox.io",
   cache: new InMemoryCache(),
-}); 
+});
 
 function App() {
-   console.log(pageConfigurations);
-  return (
+  console.log(pageConfigurations);
+  return ( 
     <BrowserRouter>
       <ChakraProvider>
         <ApolloProvider client={client}>
@@ -29,9 +29,11 @@ function App() {
                   );
                 })}
               </ProtectedRoute>
+            </Switch>
+            <Switch>
               <PublicRoute>
                 {pageConfigurations.public.map(({ component: Component, path, exact }) => {
-                   console.log(path, "Paths");
+                  console.log(path, "Paths");
                   return (
                     <Route path={path} exact={exact} key={path}>
                       <Component />
